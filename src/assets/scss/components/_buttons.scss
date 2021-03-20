@@ -1,0 +1,264 @@
+/*buttons related all css here*/
+
+.btn {
+    font-size: 1.6rem !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    padding:1rem !important;
+    margin: 0;
+    cursor: pointer !important;
+    min-width: 100px;
+    text-transform: uppercase;
+    & + .btn {
+      margin-right: 0 !important;
+      margin-left: 1.5rem !important;
+  }
+    &.btn-primary {
+        color: $white;
+    }
+    &.btn-warning {
+        color: $white;
+    }
+    &.btn-light {
+    background-color: #e4e4e4;
+    color: $black;
+    border-color: #e4e4e4;
+    }
+    &.btn-outline-primary {
+        font-size: 1.4rem;
+        padding: 1rem;
+        margin: 0;
+        min-width: 4.6875rem;
+        &:hover {
+            color: $white;
+        }
+    }
+    &.btn-outline-dark {
+        font-size: 1.4rem;
+        padding: 0.3125rem 0.4375rem;
+        margin: 0;
+        min-width: 4.6875rem;
+    }
+
+    &.btn-outline+.btn-outline {
+        margin-right: 0 !important;
+        margin-left: 0.625rem;
+    }
+    &.btn-search {
+      padding: .5rem 1rem !important;
+      min-width: 10px !important;
+      height: 38px;
+      width: 47px;
+        cursor: pointer;
+        i {
+          font-size: 2.5rem;
+          &.icon-close {
+            font-size: 1.6rem;
+          }
+        }
+    }
+    &.back-btn {
+      min-width: 3rem;
+      padding: 0;
+      margin: 0 0 0 .3125rem;
+      width: 3.8rem;
+      height: 3.8rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 !important;
+      i {
+        font-size: 2rem;
+      }
+    }
+    &.btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+        min-width: 4rem;
+    }
+
+}
+
+a {
+    &.btn-primary {
+        color: $white !important;
+    }
+}
+
+.btn+.btn {
+    margin-right: 0 !important;
+    margin-left: 0.625rem;
+}
+
+.btn-group {
+    &.btn-group-toggle {
+        .btn {
+            margin: 0;
+        }
+    }
+    &.radio-toggle-btns {
+        label.btn {
+            background-color: transparent;
+            &:hover {
+                color: $primary;
+            }
+            &.active:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+// checkbox style
+
+.styled-checkbox {
+  position: absolute; // take it out of document flow
+  opacity: 0; // hide it
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  // Box.
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: $white;
+    border: 1px solid $border;
+    border-radius: 3px;
+  }
+
+  // Box hover
+  &:hover + label:before {
+    background: $white;
+  }
+
+
+  // Box checked
+  &:checked + label:before {
+    background: $secondary;
+  }
+
+
+  // Checkmark. Could be replaced with an image
+  &:checked + label:after {
+    content: '';
+    position: absolute;
+    background: $secondary;
+    left: 7px;
+    top: 6px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+  }
+}
+
+// radio style
+
+.styled-radio {
+  position: absolute; // take it out of document flow
+  opacity: 0; // hide it
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  // Box.
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: $white;
+    border: 1px solid $border;
+    border-radius: 30px;
+  }
+
+  // Box hover
+  &:hover + label:before {
+    background: $white;
+  }
+
+
+  // Box checked
+  &:checked + label:before {
+    background: $white;
+  }
+
+
+  // Checkmark. Could be replaced with an image
+  &:checked + label:after {
+    content: '';
+    position: absolute;
+    background: $secondary;
+
+    left: 5px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 30px;
+
+  }
+}
+
+
+footer {
+    .btn-outline {
+        padding: 0.375rem 0.75rem !important;
+        font-size: 1rem !important;
+    }
+}
+.dropdown {
+    .dropdown-menu {
+        .dropdown-item {
+            font-size: 0.875rem;
+            line-height: 1.3rem;
+            padding: 0.25rem 1rem;
+        }
+    }
+}
+
+
+// media queries csss for buttons
+@media only screen and (max-width:992px) {
+    .btn {
+        font-size: 1.4rem;
+        padding: 0.375rem 0.9375rem;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width:441px) {
+    .btns-center-on-device {
+        text-align: center !important;
+    }
+}
+

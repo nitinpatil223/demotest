@@ -1,0 +1,254 @@
+/*table related css here*/
+
+.table {
+	table-layout: fixed;
+    thead {
+        th {
+            border-top: none !important;
+			border-bottom: 0.0625rem solid $grey !important;
+			position: relative;
+			vertical-align: middle;
+      background-color: $grey;
+			&.actions-td {
+				width: 70px;
+			}
+      .sort {
+        color: #ccc;
+        display: inline-block;
+        margin-left: 2px;
+        position: relative;
+        top:2px;
+      }
+        }
+	}
+	td, th {
+		padding: 1rem !important;
+    line-height: 1.6 !important;
+	}
+
+    tbody {
+        tr {
+            td {
+				border-bottom: 0.0625rem solid $grey;
+				vertical-align: middle;
+        padding: 1rem 1rem !important;
+                &.action {
+                    a {
+                        margin: 0 0.5rem;
+                        color: $primary;
+                        i {
+                          font-size:1.8rem;
+                          color: $primary;
+                          &.icon-view {
+                            font-size: 2.3rem;
+                          }
+                          &.deactive {
+                            color: #ccc;
+                          }
+                        }
+                    }
+				}
+				&.description-td {
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+				&.actions-td {
+					width: 70px;
+				}
+
+			}
+        }
+    }
+}
+.table-pagination {
+	.plain-select {
+		margin-right: 1.5rem;
+	}
+	.pagination {
+    justify-content: flex-end;
+    margin-top: 2rem;
+		.page-item{
+      margin: 0 .3rem;
+			.page-link {
+				border-radius: 50%;
+        width: 28px;
+        height: 28px;
+    text-align: center;
+    color: $secondary;
+    font-weight: 600;
+    border-color: $secondary;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      font-size: 1.4rem;
+    }
+    &:hover {
+      background-color:  $secondary;
+					border-color:  $secondary;
+					color: $white;
+    }
+			}
+			&.active {
+				.page-link {
+					background-color:  $secondary;
+					border-color:  $secondary;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+.custom-table {
+  border: 1px solid #dfdfe0;
+    border-bottom: 0 !important;
+    border-right: 0;
+  .first-th-row {
+    th {
+      border-bottom: 0.0625rem solid #dfdfe0 !important;
+    }
+  }
+  .button-td {
+    border: 0 !important;
+    .btn {
+      min-width: 8rem;
+    }
+  }
+
+}
+
+// Resposnsive tables css
+
+@media only screen and (max-width: 800px) {
+
+    /* Force table to not be like tables anymore */
+	#no-more-tables table,
+	#no-more-tables thead,
+	#no-more-tables tbody,
+	#no-more-tables th,
+	#no-more-tables td,
+	#no-more-tables tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables {
+		.table {
+			margin-bottom: 0;
+		thead  {
+			tr {
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+			}
+		}
+
+		tr {
+			padding: 0.625rem 0;
+			// border:1px solid #e6e2e2;
+			margin-bottom: 15px;
+			border-radius: 8px;
+			background-color: #ffffff;
+    box-shadow: 0 0px 1px 0 rgb(0 0 0 / 17%), 0 1px 1px 0 rgb(0 0 0 / 9%);
+    border: 1px solid #a5a6a7;
+			th {
+				&.actions-td {
+					width: inherit;
+				}
+			}
+			td {
+				/* Behave  like a "row" */
+				border: none;
+				border-bottom: 0px solid $grey;
+				position: relative;
+				padding-left: 52% !important;
+				text-align:left;
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+				min-height: 35px;
+				&:before {
+					/*Label the data*/
+					content: attr(data-title);
+					/* Now like a table header */
+					position: absolute;
+					/* Top/left values mimic padding */
+					top: 1rem;
+          left: 1rem;
+					width: 45%;
+					padding-right: 0.625rem;
+					white-space: normal;
+					text-align:left;
+					font-weight: bold;
+				}
+				&.amount {
+					text-align: left !important;
+				}
+				&.actions-td {
+					width: inherit;
+				}
+
+				.sub-list-action {
+					img {
+						position: relative;
+						top:-4px;
+					}
+				}
+        &.action {
+          .action-icons {
+            justify-content: flex-start !important;
+          }
+        }
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	}
+
+	.table {
+		.actions-td {
+			text-align: left !important;
+			div {
+				justify-content: flex-start !important;
+				a {
+					margin: 0 !important;;
+					margin-right: 0.625rem !important;;
+				}
+			}
+		}
+		.status-td {
+			text-align: left !important;
+		}
+	}
+	.table-pagination {
+		.plain-select {
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+
+
+
+@media (min-width: 769px) {
+	.table-responsive-tab {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		.table {
+			table-layout: auto;
+			tr {
+				th, td {
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+}
+

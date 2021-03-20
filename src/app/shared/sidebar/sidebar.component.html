@@ -1,0 +1,40 @@
+<!-- Side Nav START -->
+<!---menu backdrop div start-->
+<div class="overlay" (click)="closeMenu()"></div>
+<!---menu backdrop div end-->
+<nav class="side-nav expand-lg">
+  <div class="side-nav-inner">
+    <ul class="side-nav-menu">
+
+      <li class="nav-item profile-item d-lg-none">
+        <a href="javascript:void(0)"  routerLink="/profile" >
+          <img class="profile-img img-fluid" src="./assets/images/avatar/avatar.jpg" alt="User Profile Photograph">
+          <span class="d-block">Johnathan Doe</span>
+        </a>
+      </li>
+      <li class="nav-item logos d-none d-lg-block">
+        <a class="logo d-md-flex align-items-center" href="javascript:void(0)">
+          <!-- <img src="./assets/images/logo-with-name.png" class="logo-big" alt="Logo">
+          <img src="./assets/images/logo.png" class="logo-small" alt="Logo"> -->
+          Logo
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" (click)="closeSideMenu()" routerLink="/admin-management" routerLinkActive="active-link">
+          <i class="icon-user"></i>
+          <span class="title">Admin Management</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" (click)="closeSideMenu()" routerLink="/login" routerLinkActive="active-link">
+          <i class="icon-log-out"></i>
+          <span class="title">Logout</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<!-- Side Nav END -->

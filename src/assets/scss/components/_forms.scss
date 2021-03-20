@@ -1,0 +1,388 @@
+/* forms related all css here*/
+
+.form-control {
+    &:read-only::placeholder {
+        color: $grey;
+    }
+}
+.form-group {
+  margin-bottom: 2rem !important;
+  &.mb-sm-0 {
+    margin-bottom: 0 !important;
+  }
+  label {
+    font-weight: 400;
+    color: $secondary;
+    .required {
+      color: $danger;
+    }
+  }
+  &.phone-field {
+    label {
+      display: block;
+    }
+  }
+}
+
+.form-control {
+  background-color: $white !important;
+  min-height: 38px !important;
+    padding: .8rem 1rem !important;
+  font-size: 1.4rem !important;
+  border:1px solid transparent !important;
+  box-shadow: 0 0px 1px 0 rgb(0 0 0 / 17%), 0 1px 1px 0 rgb(0 0 0 / 9%);
+  border-radius: 0.4rem !important;
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+    &[readonly]{
+        background-color: $grey !important;
+
+        & + i {
+          opacity: 0.5 !important;
+        }
+    }
+
+    &.ng-touched {
+        //border-color: $danger !important;
+        box-shadow: 0 0px 2px 0 rgb(249 14 14 / 55%), 0 0px 2px 0 rgb(255 1 1 / 41%);
+        &.ng-invalid {
+          //border-color: $danger !important;
+          box-shadow: 0 0px 2px 0 rgb(249 14 14 / 55%), 0 0px 2px 0 rgb(255 1 1 / 41%);
+        }
+        &.ng-valid {
+            //border-color: $green !important;
+            box-shadow: 0 0px 2px 0 rgb(76 175 80 / 69%), 0 0px 2px 0 rgb(76 175 80 / 80%);
+        }
+    }
+}
+
+select:disabled {
+    cursor: not-allowed;
+    opacity: 0.5 !important;
+}
+
+.input-group {
+    &.search-input,
+    &.datepicker {
+        // border-bottom: 1px solid $border;
+        margin-top: -1px;
+        .form-control {
+            &.ng-invalid {
+                border-color: $danger !important;
+            }
+            &.ng-touched {
+                border-color: $danger !important;
+                &.ng-valid {
+                    border-color: $green !important;
+                }
+            }
+        }
+        .form-control + .input-group-append {
+            border-bottom: 0.0625rem solid $border !important;
+        }
+        .form-control.ng-invalid  + .input-group-append,  .form-control.ng-touched  + .input-group-append {
+            border-color: $danger !important;
+        }
+        .form-control.ng-valid  + .input-group-append {
+            border-color: $green !important;
+        }
+
+        .form-control.ng-valid.ng-untouched  + .input-group-append  {
+            border-color: $border !important;
+        }
+
+        .btn {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            margin: 0;
+            min-width: 1.5rem;
+            i {
+                color: $border;
+            }
+        }
+    }
+
+}
+
+.input-group-prepend + .form-control {
+  border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+ngx-intl-tel-input {
+.iti {
+  &.separate-dial-code {
+    position: relative;
+    width: 100%;
+    .iti__flag-container {
+      position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1px;
+.iti__selected-flag {
+  display: flex;
+    align-items: center;
+    height: 100%;
+}
+    .iti__arrow {
+      margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #555;
+    }
+    .country-dropdown {
+      width: max-content;
+      ul {
+        li {
+          font-size: 1.4rem;
+          padding-left: 1rem;
+        }
+      }
+    }
+    .iti__country-list {
+      max-height: 170px;
+      overflow-y: auto;
+    }
+    }
+
+    .form-control {
+    padding-left: 98px !important;
+    margin-left: 0;
+    }
+  }
+}
+}
+
+.readonly-form {
+  .form-row {
+    margin-bottom: 1rem;
+  }
+  label + label {
+    font-weight: 400;
+  }
+}
+
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  padding:2rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $grey;
+  position: relative;
+  overflow: hidden;
+
+  i {
+    font-size:10rem;
+    color: #dce4f1;
+  }
+
+  .upload-btn-wrapper {
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      input[type="file"] {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+      }
+  }
+}
+
+.img-upload-note {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+
+.datepicker {
+.input-group {
+  position: relative;
+  input {
+    padding-right: 20px !important;
+  }
+  i {
+    position: absolute;
+    right: 10px;
+    font-size: 2rem;
+    top: 8px;
+
+  }
+}
+}
+
+/* custome checkbox and radio button css*/
+.form-check-input {
+  margin-top: 0.6rem;
+  margin-left: -2.25rem;
+}
+.form-check {
+  &.form-check-inline {
+      flex-basis: 31%;
+  }
+}
+
+ngb-datepicker {
+  ngb-datepicker-navigation-select>.custom-select {
+    font-size: 1.4rem;
+    height: 3rem;
+    padding: 0 .7rem;;
+  }
+  .ngb-dp-header {
+    padding-top:.8rem;
+  }
+  .ngb-dp-arrow {
+
+    width: 3rem;
+    height: 3rem;
+}
+  .ngb-dp-arrow-btn {
+    width: auto;
+    min-width: auto;
+  }
+
+  .ngb-dp-day, .ngb-dp-week-number, .ngb-dp-weekday {
+    width: 3rem;
+    height: 3rem;
+}
+
+  [ngbDatepickerDayView] {
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: .25rem;
+    background: transparent;
+}
+}
+
+// sortable table css
+
+.sortable-wrapper {
+.sortable-item {
+  background-color: $grey !important;
+    min-height: 38px !important;
+    padding: 1rem 1rem !important;
+    font-size: 1.4rem !important;
+    border: 1px solid rgb(0 0 0 / 10%) !important;
+    box-shadow: 0 0px 1px 0 rgb(0 0 0 / 17%), 0 1px 1px 0 rgb(0 0 0 / 9%);
+    border-radius: 0.4rem !important;
+    margin-bottom: 2rem;
+    cursor: move;
+    &.sortable-item-active {
+      background-color: #f5d68a !important;
+    }
+    .number {
+      font-weight: 600;
+    }
+}
+}
+
+.facility-text {
+  .form-control {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  .input-group-append {
+    .input-group-text {
+      font-size: 1.4rem;
+      box-shadow: 0 0px 1px 0 rgb(0 0 0 / 17%), 0 1px 1px 0 rgb(0 0 0 / 9%);
+    }
+  }
+}
+
+/* custome checkbox and radio button css end*/
+
+::-webkit-inner-spin-button {
+    display: none;
+}
+
+/*input placeholde color change*/
+
+.form-control::-webkit-input-placeholder {
+    /* Chrome */
+    color: $light-grey !important;
+}
+
+.form-control:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $light-grey !important;
+}
+
+.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $light-grey !important;
+}
+
+.form-control:-moz-placeholder {
+    /* Firefox 4 - 18 */
+    color: $light-grey !important;
+}
+
+
+/* css for IE 11*/
+
+_:-ms-fullscreen,
+:root {
+  .has-float-label label {
+    display: none;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+
+}
+
+.gecko {
+    .checkbox-list > li ul {
+        .custom-control {
+            padding-left: 1.5rem !important;
+            &:not(:first-of-type):not(:nth-child(5)) {
+                padding-left: 1.5rem !important;
+            }
+        }
+    }
+}
+
+
+
+.gecko .add-forms .checkbox-list > li ul:not(:nth-child(5)):not(:first-of-type).custom-control {
+    padding-left: 1.5rem !important;
+  }
+
+/* css for IE edge*/
+
+@supports (-ms-ime-align: auto) {
+  :disabled.form-control + label {
+    display: none;
+  }
+  .has-float-label {
+    label {
+      display: none;
+    }
+  }
+}
+/* css for mac safari*/
+
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) {
+
+}}

@@ -1,0 +1,106 @@
+<!-- <div class="shape1"></div>
+<div class="shape2"></div> -->
+
+<div class="login-page registration container">
+  <!-- <div class="text-center"><img src="./assets/images/logo.png" alt="Logo"></div> -->
+  <h1 class="text-center">Tenant Registration</h1>
+  <form class="form-signin mt-5" novalidate>
+
+     <h2 class="mb-4">Basic Information</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="firstName">First Name <span class="required">*</span></label>
+          <input class="form-control" type="text" id="firstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="middleName">Middle Name <span class="required">*</span></label>
+          <input class="form-control" type="text" id="middleName" placeholder="Middle Name">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="lastName">Last Name <span class="required">*</span></label>
+          <input class="form-control" type="text" id="lastName" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input class="form-control" type="text" id="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="phone">Phone # <span class="required">*</span></label>
+          <input class="form-control" type="text" id="phone" placeholder="Phone #">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <fieldset class="form-group datepicker">
+          <label for="Phone">Date of Birth</label>
+          <div class="input-group">
+            <input class="form-control" placeholder="MM/DD/YYYY"
+                   name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                   <i class="icon-calendar" (click)="d.toggle()"></i>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="pancard">Pancard <span class="required">*</span></label>
+          <input class="form-control" type="text" id="pancard" placeholder="Pancard">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="aadhar">Aadhar Card <span class="required">*</span></label>
+          <input class="form-control" type="text" id="aadhar" placeholder="Aadhar Card">
+        </div>
+      </div>
+    </div>
+    <h2 class="mb-4 mt-4">Address</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="city">City/Town <span class="required">*</span></label>
+          <input class="form-control" type="text" id="city" placeholder="City">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="district">District <span class="required">*</span></label>
+          <input class="form-control" type="text" id="district" placeholder="District">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="state">State <span class="required">*</span></label>
+          <input class="form-control" type="text" id="state" placeholder="State">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="country">Country </label>
+          <input class="form-control" type="text" id="country" placeholder="Country">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="pincode">Pincode </label>
+          <input class="form-control" type="text" id="pincode" placeholder="Pincode">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group mt-4 mb-2 text-center">
+      <a href="javascript:void(0)" class="btn btn-lg btn-light login-button"
+      routerLink="/admin-management">RESET</a>
+      <a href="javascript:void(0)" class="btn btn-lg btn-primary login-button"
+        routerLink="/admin-management">SUBMIT</a>
+    </div>
+  </form>
+</div>

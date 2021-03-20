@@ -1,0 +1,65 @@
+/* all alert and error messages css here*/
+
+.error-msg {
+    color: $danger;
+    font-size: 1.4rem;
+    padding-top: 1rem;
+    line-height: 1.2rem;
+    position: relative;
+}
+ngb-alert {
+    &.sticky-alert {
+        position: sticky;
+        top: 3.875rem;
+        z-index: 9999;
+    }
+}
+
+.sticky-alert {
+  position: sticky;
+  top: 3.875rem;
+  z-index: 9999;
+}
+
+.toast
+{
+  position: fixed !important;
+  z-index: 9999 !important;;
+  opacity: 1 !important;;
+  width: 100% !important;;
+  flex-basis: 100% !important;;
+    max-width: 98% !important;;
+    background-color: #ffffff !important;
+    padding: 1rem !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 1rem auto ;
+    text-align: center;
+    font-size: 1.8rem;
+
+    &.alert-success {
+      background-color: #d4edda !important;
+      border-color: #1d6b30 !important;
+    }
+    &.alert-danger {
+      color: #721c24 !important;
+      background-color: #f8d7da !important;
+      border-color: #f5c6cb !important;
+  }
+  .toast-body {
+    font-size: 1.8rem;
+  }
+
+}
+
+/* css for IE 11*/
+_:-ms-fullscreen,
+:root {
+    ngb-alert {
+        &.sticky-alert  {
+            top:0;
+            z-index: 1000;
+        }
+    }
+}

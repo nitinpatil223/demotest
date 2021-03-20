@@ -1,0 +1,195 @@
+<div class="container-fluid">
+  <div class="content-header mb-4">
+    <h1> <i class="icon-user"></i> Profile</h1>
+  </div>
+  <form [formGroup]="profileForm" novalidate>
+    <div class="content-body card">
+
+      <div class="card-body">
+        <div class="inner-header">
+          <h4 class="card-title"> <i class="icon-user"></i> Personal Info</h4>
+        </div>
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input class="form-control" type="text" id="firstName" placeholder="First Name" formControlName="firstName">
+              <div
+                *ngIf="profileForm.controls['firstName'].invalid && (profileForm.controls['firstName'].dirty || profileForm.controls['firstName'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['firstName'].errors.required">
+                  First name is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input class="form-control" type="text" id="lastName" placeholder="Last Name" formControlName="lastName">
+              <div
+                *ngIf="profileForm.controls['lastName'].invalid && (profileForm.controls['lastName'].dirty || profileForm.controls['lastName'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['lastName'].errors.required">
+                  Last name is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="username">Username <span class="required">*</span></label>
+              <input class="form-control" type="text" id="username" placeholder="Username" formControlName="username">
+              <div
+                *ngIf="profileForm.controls['username'].invalid && (profileForm.controls['username'].dirty || profileForm.controls['username'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['username'].errors.required">
+                  Username is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="emailAddress">Email Address <span class="required">*</span></label>
+              <input class="form-control" type="text" id="emailAddress" placeholder="Email Address" formControlName="emailAddress">
+              <div
+                *ngIf="profileForm.controls['emailAddress'].invalid && (profileForm.controls['emailAddress'].dirty || profileForm.controls['emailAddress'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['emailAddress'].errors.required">
+                  Email address is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+            <fieldset class="form-group">
+              <label for="Phone">Phone</label>
+              <ngx-intl-tel-input [cssClass]="'custom form-control'"
+              [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.UnitedStates" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+              [phoneValidation]="true" [separateDialCode]="separateDialCode"
+              [numberFormat]="PhoneNumberFormat.National" name="phone">
+            </ngx-intl-tel-input>
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+            <fieldset class="form-group">
+              <label for="Address">Address</label>
+              <input type="text" class="form-control" id="Address" placeholder="Address">
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+            <fieldset class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" placeholder="City">
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+            <fieldset class="form-group">
+              <label for="state">State</label>
+              <input type="text" id="state" class="form-control" placeholder="State">
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="status">Country</label>
+              <select id="status" class="form-control">
+                <option value="null" selected disabled>Select</option>
+                <option [ngValue]="country" *ngFor="let country of countries">{{country.name}}</option>
+              </select>
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+            <fieldset class="form-group">
+              <label for="zipCode">Zip Code/Postal Code</label>
+              <input type="text" id="zipCode" class="form-control" placeholder="Zip Code/Postal Code">
+            </fieldset>
+          </div>
+
+          <div class="col-12">
+            <fieldset class="form-group">
+              <label for="avatar">Avatar</label>
+              <div class="profile-photo mb-2 mt-2">
+                <i class="icon-user"></i>
+                <div class="upload-btn-wrapper">
+                    <input name="imageLogo" type="file">
+                </div>
+            </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="inner-header mt-4">
+          <!-- <h4 class="card-title"> <i class="icon-key"></i> Change Password</h4> -->
+
+          <div class="form-check pl-0">
+            <input type="checkbox" class="styled-checkbox" id="passwordCheck" [(ngModel)]="passwordCheckbox" [ngModelOptions]="{standalone: true}"  data-md-icheck (change)="toggleVisibility($event)">
+            <label for="passwordCheck"> Change Password</label>
+          </div>
+        </div>
+        <div *ngIf="showPasswordWrap">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="oldPassword">Current Password <span class="required">*</span></label>
+              <input class="form-control" type="password" id="oldPassword" placeholder="Current Password" formControlName="oldPassword">
+              <div
+                *ngIf="profileForm.controls['oldPassword'].invalid && (profileForm.controls['oldPassword'].dirty || profileForm.controls['oldPassword'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['oldPassword'].errors.required">
+                  Current password is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="newPassword">New Password <span class="required">*</span></label>
+              <input class="form-control" type="password" id="newPassword" placeholder="New Password" formControlName="newPassword">
+              <div
+                *ngIf="profileForm.controls['newPassword'].invalid && (profileForm.controls['newPassword'].dirty || profileForm.controls['newPassword'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['newPassword'].errors.required">
+                 New password is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <fieldset class="form-group">
+              <label for="confirmPassword">Confirm New Password <span class="required">*</span></label>
+              <input class="form-control" type="password" id="confirmPassword" placeholder="Confirm New Password" formControlName="confirmPassword">
+              <div
+                *ngIf="profileForm.controls['confirmPassword'].invalid && (profileForm.controls['confirmPassword'].dirty || profileForm.controls['confirmPassword'].touched)"
+                class="error-msg">
+                <div *ngIf="profileForm.controls['confirmPassword'].errors.required">
+                 Confirm new password is required.
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        </div>
+          </div>
+
+      <div class="card-footer">
+        <div class="form-actions center">
+          <button class="btn btn-dark mr-1">  Cancel</button>
+
+          <button type="submit" class="btn btn-primary">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,977 @@
+/* global css for layout here*/
+:root {
+  font-size: 62.5%;
+}
+
+html {
+    overflow-x: inherit;
+
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+body {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F7FA !important;
+    color:$secondary !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1.8;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow-x: hidden;
+}
+
+
+/*css general setting*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem !important;
+    /*28px*/
+}
+
+h2 {
+    font-size: 1.5rem;
+    /*24px*/
+}
+
+h3 {
+    font-size: 1.375rem;
+    /*22px*/
+}
+
+h4 {
+    font-size: 1.25rem;
+    /*20px*/
+}
+
+h5 {
+    font-size: 1rem;
+    /*16px*/
+}
+
+h6 {
+    font-size: 0.875rem;
+    /*14px*/
+}
+
+p,
+div,
+a {
+    font-size: 1.4rem;
+    /*16px*/
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: $primary;
+    cursor: pointer;
+}
+
+a:focus,
+input,
+.form-control:focus {
+    outline: none !important;
+}
+
+ul,
+ol {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li a,
+ol li a {
+    list-style: none;
+    font-size: 1.4rem;
+    /*14px*/
+}
+
+table tr th {
+  font-size: 1.4rem;
+    /*14px*/
+    line-height: 1rem;
+}
+
+table tr td {
+  font-size: 1.4rem;
+    /*14px*/
+    line-height: 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+.form-control,
+  input {
+    font-size: 1.4rem !important;
+      font-weight: 400;
+  }
+
+:focus {
+    outline: 0 !important;
+}
+
+
+/* removed number spinner from input type number field for firefox browser*/
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.line-height-20 {
+    line-height: 1.2rem;
+}
+
+.line-height-15 {
+    line-height: 0.9375rem;
+}
+
+
+/*common-colors*/
+
+.orange {
+    color: map-get($theme-colors, warning);
+}
+
+.danger {
+    color: map-get($theme-colors, danger);
+}
+
+.grey {
+    color: map-get($theme-colors, light);
+}
+
+.green {
+    color: map-get($theme-colors, primary);
+}
+
+.dark-blue {
+    color: map-get($theme-colors, dark);
+}
+
+.badge {
+    padding: .4rem .4rem .4rem .4rem;
+    font-size: 1.4rem;
+    font-weight: normal;
+    border-radius: 2px;
+    i {
+        font-size: 0.5rem;
+        margin-left: .1rem;
+        cursor: pointer;
+    }
+}
+
+
+/*pointers*/
+
+.not-allowed {
+    cursor: not-allowed !important;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.min-width-0 {
+    min-width: 0;
+}
+
+.tooltip {
+    z-index: 1049;
+}
+
+/* css for main layout*/
+
+.layout {
+  height: 100vh;
+  padding-top: 65px;
+    .page-container {
+      padding: 2rem;
+      margin-left: 256px;
+        transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        .main-content {
+          //padding: calc(3.125rem + 2rem) 2rem 0.9375rem 2rem;
+          padding:0;
+            width: 100%;
+            flex-grow: 1;
+            position: relative;
+            footer {
+                position: sticky;
+                bottom: -1px;
+                left: 0;
+                padding: 1.5rem;
+                padding-left: 4.3rem;
+                border-top: 1px solid $border;
+                width: 100%;
+                z-index: 5;
+                background-color: $white;
+                text-align: right;
+            }
+        }
+    }
+
+    .content-header {
+      display: flex;
+      align-items: center;
+      h1 {
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: $secondary;
+      }
+    }
+    .container {
+        &.form-container {
+            max-width: 1240px;
+            /*bootstrap card css override here*/
+            .card {
+                border: none;
+                padding: 1.875rem 3.125rem 0;
+                .card-header {
+                    background-color: transparent;
+                    border: none;
+                    //border-left: 0.1875rem solid $green;
+                    border-radius: 0;
+                    padding-right: 0;
+                padding-left: 0;
+                }
+                .card-header + .card-header-label {
+                    padding-left: 1.50rem;
+                    margin-top: 0.5rem;
+                }
+                .card-body {
+                padding-right: 0;
+                padding-left: 0;
+                }
+            }
+        }
+    }
+
+    .custom-container {
+      padding: 2rem;
+      background-color: $white;
+      .second-title {
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin: 0rem 0 3rem;
+        color: $black;
+      }
+    }
+
+    //fluid-container with fluid form full width
+    .container-fluid {
+        &.form-container-fluid {
+
+            /*bootstrap card css override here*/
+            .card {
+                border: none;
+                padding: 1.875rem 3.125rem 0;
+                .card-header {
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 0;
+                }
+                .card-header + .card-header-label {
+                    padding-left: 1.50rem;
+                    margin-top: 0.5rem;
+                }
+                .card-body {
+                padding-right: 0;
+                }
+            }
+        }
+    }
+
+}
+
+
+/*bootstrap card css override for fluid container here*/
+
+.card {
+    border: none !important;
+    padding: 0;
+    box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%);
+    .card-header {
+      background-color: $white;
+        border: none;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        .card-title {
+          color: $secondary;
+          font-weight: 500;
+          letter-spacing: .05rem;
+          font-size: 1.6rem;
+          margin-bottom: 0;
+          text-transform: uppercase;
+        }
+    }
+    .card-body {
+       padding: 2rem;
+       .inner-header {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $border;
+        padding-bottom: .5rem;
+        .card-title {
+          color: $secondary;
+          font-weight: 600;
+          letter-spacing: .0rem;
+          font-size: 1.6rem;
+          margin-bottom: 0;
+          line-height: 3rem;
+          text-transform: uppercase;
+          i {
+            font-size: 2rem;
+            margin: 0 .5rem 0 .5rem;
+          }
+        }
+       }
+       .list-header {
+        .card-title {
+          color: $secondary;
+          font-weight: 600;
+          letter-spacing: .0rem;
+          font-size: 1.6rem;
+          margin-bottom: 0;
+          line-height: 3rem;
+          text-transform: uppercase;
+
+        }
+       }
+    }
+    .card-footer {
+      background-color: $white;
+      border: none;
+      border-radius: 0;
+      padding: 2rem;
+      padding-top:0;
+      text-align: right;
+    }
+}
+
+
+/* hide header and sidebar from login page and other css*/
+
+.login-page-body {
+    background-color: $white;
+    //background:linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url(../images/banner-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+     app-header,
+     app-sidebar,
+     app-footer,
+     app-web-footer {
+       display: none;
+     }
+     .layout {
+        overflow: hidden;
+        padding: 0;
+        height: calc(100vh - 0px);
+     }
+    .page-container {
+        padding: 0;
+        margin:0;
+        .main-content {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+
+        }
+    }
+
+    main {
+      width: 100%;
+    }
+
+}
+
+
+/*login and forgot page css here*/
+
+.login-page {
+  width: 430px;
+  &.registration {
+    width: auto !important;
+  }
+  .form-signin {
+    background-color: $white;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+
+    border-radius: .5rem;
+    padding: 2rem 2.5rem;;
+    h1 {
+      font-weight: 600;
+      color: $black;
+    }
+  }
+
+  .login-button {
+    padding: 1rem;
+  }
+  .link {
+    color: $black;
+  }
+   img {
+    width: 100px;
+   }
+}
+
+.registration-page {
+  .layout {
+    overflow-y: auto;
+  }
+  .registration {
+    h1 {
+      color: $black;
+      font-size: 2.5rem !important;
+    font-weight: 600;
+    }
+    h2 {
+      color: $black;
+      font-weight: 600;
+    }
+  }
+}
+/* end login css*/
+
+.search-content {
+  background-color: $grey;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid $border;
+    border-radius: 4px;
+}
+/*page not found css here*/
+
+.page-not-found {
+    background-color: $grey;
+    app-header,
+    app-sidebar {
+        display: none;
+    }
+    .page-container {
+        padding-left: 0;
+        .main-content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+
+/*page not found css end here*/
+
+/* media css for main layout*/
+@media only screen and (max-width: 1024px) {
+    .layout {
+        .page-container {
+          margin-left: 62px;
+          padding: 2rem 1rem;
+            .main-content {
+                padding-left: 0;
+                padding-right: 0;
+                footer {
+                    padding: 1rem 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    body {
+        background-color: $white;
+      }
+    .layout {
+          height: calc(100vh - 0px);
+    overflow: hidden;
+    overflow-y: auto;
+    // padding-bottom: 68px;
+        .page-container {
+            padding-left: 0;
+            .main-content {
+                padding-left: 0;
+                padding-right: 0;
+                footer {
+                    padding: 1rem 1.25rem;
+                  }
+                .container {
+                    &.form-container {
+                        .card {
+                            padding: 0;
+                            .card-body {
+                                padding-right: 1.25rem;
+                            }
+                        }
+                    }
+                }
+
+                .container-fluid {
+                    &.form-container-fluid {
+                        .card {
+                            padding: 0;
+                            .card-body {
+                                padding-right: 1.25rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* scroll to top css here*/
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+    background-color: rgba(57, 80, 112, 0.8);
+    width: 40px;
+    height: 40px;
+    padding: 9px 12px;
+    border-radius: 100%;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 10;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    i {
+        color: $white;
+        position: relative;
+        font-size: 1.8rem;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+}
+
+.show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .layout .page-container {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 441px) {
+
+  .layout {
+    padding-top: 55px;
+    .login-page {
+      width: 350px;
+  }
+   .page-container {
+     padding-right: 0;
+     margin-left: 0 !important;
+     padding-bottom: 0;
+     padding-top: 0;
+     .container-fluid {
+       padding:0;
+       .card {
+        .card-body {
+          padding: 1.6rem;
+        }
+        .card-footer {
+          text-align: center;
+        }
+       }
+       .content-header {
+         position: relative;
+        flex-wrap: wrap;
+        padding:2rem 1.6rem;
+        justify-content: center;
+        margin-bottom: 0 !important;
+        h1 {
+          font-size: 1.6rem !important;
+          width: 100%;
+          text-align: center;        }
+        .btn {
+          margin-top: 2rem;
+          margin-left: inherit !important;
+          & + .btn {
+            margin-left: 1.1rem !important;
+          }
+        }
+        .back-btn {
+          right: 15px;
+          width: 3rem;
+          height: 3rem;
+          justify-content: center;
+        }
+        &.inline-header {
+          flex-wrap: nowrap;
+          h1 {
+            margin-bottom: 0;
+            text-align: left;
+          }
+          .btn {
+            margin-top: 0 !important;
+          }
+        }
+      }
+     }
+
+     .table-pagination {
+      .pagination {
+        justify-content: center;
+      }
+     }
+     .cpted-checkboxes {
+       li {
+         width: 48%;
+         margin-right: 0 !important;
+       }
+     }
+   }
+
+  }
+
+  .login-page-body .layout {
+    height: 100%;
+   .page-container .main-content {
+      padding-left: 0;
+      padding-right: 0;
+      height: calc(100vh - 55px);
+  }
+  }
+
+}
+
+
+@media only screen and (max-width: 375px) {
+  .layout {
+    .page-container {
+      .container-fluid {
+        .content-header {
+          .btn {
+            padding: 1rem .9rem!important;
+          }
+          .btn + .btn {
+            margin-left: .8rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+.login-page-body {
+  .layout .page-container {
+    padding-top: 0;
+  }
+  .login-page {
+    img {
+      width: 66px;
+  }
+  .form-signin {
+    margin-top: 1rem !important;
+    padding: 1rem 2.5rem;
+    .form-group {
+      margin-bottom: 1rem !important;
+    }
+  }
+  }
+}
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .login-page-body {
+      .layout .page-container {
+        padding-top: 0;
+      }
+      .login-page {
+        img {
+          width: 66px;
+      }
+      .form-signin {
+        margin-top: 1rem !important;
+        padding: 1rem 2.5rem;
+        h1{
+          margin-bottom: 0.5rem !important;
+        }
+        .form-group {
+          margin-bottom: .5rem !important;
+        }
+      }
+      }
+    }
+
+}
+
+
+
+
+//mobile app ui csss
+@media only screen and (max-width: 769px) {
+.mobile, .mobile.iphone, .mobile.ipad {
+    .login-page-body {
+        background-color: $white;
+        .form-signin {
+            box-shadow: none;
+        }
+    }
+
+    .no-footer {
+        app-footer {
+            display: none;
+        }
+        .layout {
+            padding-bottom: 0;
+            height: calc(100vh - 0px);
+        }
+    }
+    .side-nav {
+        top:0;
+    }
+    // &.android {
+
+    // }
+    .layout {
+        .page-container {
+            .main-content {
+                padding: 0;
+                padding-top: 0;
+                .card {
+                    .card-header {
+                        position: -webkit-sticky;
+                        position: sticky;
+                        top: 0rem;
+                        background-color: #fff;
+                        z-index: 5;
+                        padding: 1.5rem 0;
+                        border: 0;
+                        padding-bottom: 5px;
+                        h4 {
+                            font-weight: 600;
+                            font-size: 1rem;
+                            .add-note-icon {
+                                i {
+                                    font-size: 1.2rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .card-header + .card-header-label {
+                        padding-left: 0 !important;
+                        margin-top: 5px;
+                        margin-bottom: 1rem;
+                        line-height: 17px;
+                    }
+                    .card-body {
+                        padding: 0 !important;
+                        .search-filter {
+                            margin-top:2rem;
+                        }
+                    }
+                }
+                ngb-alert.sticky-alert {
+                    position: fixed;
+                    width: 96%;
+                    z-index: 1045;
+                    left: 0;
+                    right: 0;
+                    top: 5px;
+                    margin: 0 auto;
+                }
+
+
+                .form-container {
+                    .form-header {
+                        position: fixed;
+                        z-index: 10;
+                        width: 100%;
+                        padding: 15px;
+                        top: 0;
+                        left: 0;
+                        background-color: #fff;
+                        border: 0;
+                        .back-arrow {
+                            display: inline;
+                            position: absolute;
+                            left: 15px;
+                            top: 15px;
+                        }
+                    }
+
+                    .card {
+                        margin-top: 1rem;
+                        .card-header {
+                            top:2rem;
+                            margin-bottom: 1rem;
+                            h4 {
+                                text-align:left;
+                            }
+                        }
+                    }
+                    footer {
+                        text-align: center;
+                        border: 0;
+                        .btn-secondary {
+                            display: none;
+                        }
+                        .btn-primary {
+                            min-width: 15rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+@media only screen and (max-width: 441px) {
+    .mobile, .mobile.iphone {
+        .layout {
+            .page-container {
+                .main-content {
+                    ngb-alert.sticky-alert {
+                        width: 92%;
+                    }
+                    .card {
+                        .card-body {
+                            .search-filter {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*app-web-footer css */
+
+app-web-footer {
+    display: none;
+}
+
+@media only screen and (min-width: 769px) {
+    app-web-footer {
+        display: block;
+    }
+    .layout {
+        padding-bottom: 2rem;
+    }
+}
+
+/*scroll hover instruction css for view service area on products page*/
+
+.screen-overlay {
+    display: none;
+}
+
+@media screen and (max-width:1024px) {
+    .screen-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.82);
+        color: $white;
+        font-size: 2rem;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        z-index: 1100;
+        padding: 10px;
+        h3 {
+            margin-bottom: 10rem;
+        }
+        img {
+            position: absolute;
+            top:0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+           margin: auto;
+           width: 50px;
+        }
+    }
+ }
+
+
+ .shape1 {
+  height: 150px;
+  width: 150px;
+  background-color: #0074d9;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  float: left;
+  margin-right: 20px;
+  transform: rotate(45deg);
+  position:absolute;
+  top:0;
+  left: 0;
+ }

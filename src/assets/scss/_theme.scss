@@ -1,0 +1,77 @@
+// $themes: (
+//     light: (
+//       backgroundColor: #CCC,
+//       textColor: #0488e0
+//     ),
+//     dark: (
+//       backgroundColor: #000,
+//       textColor: #ddd
+//     ),
+//     red: (
+//       backgroundColor: #ff3d3d,
+//       textColor: #ffffff
+//     ),
+//     blue: (
+//       backgroundColor: rgb(0, 110, 255),
+//       textColor: #f8f8f8
+//     ),
+// );
+
+
+$themes: (
+    light: (
+      primary:    #132C5A ,
+    secondary:  #808D74, // bootstrap default
+    success:    #3cba54, // bootstrap default
+    info:       #50a9e8, // bootstrap default
+    warning:    #ff9121, // bootstrap default
+    danger:     #dd3237, // bootstrap default
+    light:      #c7c7c7, // bootstrap default
+    dark:       #395070, // bootstrap default
+    dark-grey:     #444444,
+    light-green: #808D74,
+
+    ),
+    dark: (
+       primary:    blue ,
+    secondary:  green, // bootstrap default
+    success:    #3cba54, // bootstrap default
+    info:       #50a9e8, // bootstrap default
+    warning:    #ff9121, // bootstrap default
+    danger:     rgb(255, 0, 170), // bootstrap default
+    light:      #c7c7c7, // bootstrap default
+    dark:       #395070, // bootstrap default
+    dark-grey:     #444444
+    ),
+    red: (
+      backgroundColor: #ff3d3d,
+      textColor: #ffffff
+    ),
+    blue: (
+      backgroundColor: rgb(0, 110, 255),
+      textColor: #f8f8f8
+    ),
+);
+
+
+
+  /*
+   * Implementation of themes
+   */
+   @mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }

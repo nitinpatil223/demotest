@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <!--success message-->
+   <app-alert aria-live="polite" aria-atomic="true"></app-alert>
+  <!--success message-->
+
+<div class="content-header mb-4">
+  <h1><i class="icon-user-plus"></i> Admin Users</h1>
+  <a routerLink="/admin-management/add-admin" class="btn btn-outline-secondary ml-auto">Add Admin User</a>
+  <button type="button" class="btn btn-outline-secondary btn-search" (click)="openSearch()">
+    <i [ngClass]=" showSearchContent ? 'icon-close' : 'icon-search'"></i>
+  </button>
+
+</div>
+
+  <div class="content-body card">
+    <div class="card-body">
+      <div class="search-content" [formGroup]="searchFrom" *ngIf="showSearchContent">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <fieldset class="form-group">
+              <label for="name">Name</label>
+              <input class="form-control" type="text" id="name" placeholder="Name">
+            </fieldset>
+          </div>
+
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <fieldset class="form-group">
+              <label for="username">Username</label>
+              <input class="form-control" type="text" id="username" placeholder="Username">
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <fieldset class="form-group">
+              <label for="email">Email Address</label>
+              <input class="form-control" type="text" id="email" placeholder="Email">
+            </fieldset>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <fieldset class="form-group">
+              <label for="status">Status</label>
+              <select id="status" class="form-control">
+                <option value="null" selected disabled>Select</option>
+                <option [ngValue]="status" *ngFor="let status of statust">{{status.status}}</option>
+              </select>
+            </fieldset>
+          </div>
+
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <fieldset class="form-group mb-sm-0">
+              <label class="d-none d-xl-block">&nbsp;</label>
+              <button type="reset" class="btn btn-dark mr-1">
+              Reset
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Search
+              </button>
+            </fieldset>
+          </div>
+
+          </div>
+      </div>
+      <div class="table-responsive" id="no-more-tables">
+        <table class="table mb-0">
+            <thead class="bg-yellow bg-lighten-4">
+                <tr>
+                  <th style="width:15%">Name <i class="icon-sort-desc sort"></i></th>
+                  <th style="width:15%">Username <i class="icon-sort-desc sort"></i></th>
+                  <th style="width:22%">Email Address</th>
+                  <th style="width:14%">Phone</th>
+                  <th style="width:10%">City <i class="icon-sort-asc sort"></i></th>
+                  <th style="width:8%">Status <i class="icon-sort-asc sort"></i></th>
+                  <th style="width:10%" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; index as i">
+                  <td data-title="Name">{{user.name}}</td>
+                    <td data-title="Username">{{user.userName}}</td>
+                    <td data-title="Email Address">{{user.email}}</td>
+                    <td data-title="Phone">{{user.phoneNumber}} </td>
+                    <td data-title="City">{{user.city}}</td>
+                    <td data-title="Status">{{user.status}} </td>
+                    <td data-title="Action" class="action">
+                      <div class="action-icons d-flex align-items-center justify-content-center">
+                        <a href="javascript:void(0)" ngbTooltip="View" routerLink="/admin-management/view-admin"><i class="icon-view"></i></a>
+                        <a href="javascript:void(0)" ngbTooltip="Edit" routerLink="/admin-management/add-admin"><i class="icon-edit"></i></a>
+                        <a href="javascript:void(0)" *ngIf="user.status =='Active'" ngbTooltip="Deactivate" (click)="openConfirmationModal()"><i class="icon-user-active"></i></a>
+                        <a href="javascript:void(0)" *ngIf="user.status =='Deactive'" ngbTooltip="Activate" (click)="openConfirmationModal()"><i class="icon-user-deactive deactive"></i></a>                      </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right mt-4">
+    <app-pagination></app-pagination>
+  </div>
+
+    </div>
+  </div>
+
+</div>
+

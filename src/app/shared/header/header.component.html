@@ -1,0 +1,49 @@
+
+
+<!-- header start -->
+<header class="header">
+  <div class="header-container h-100 d-flex align-items-center">
+    <!-- <img src="./assets/images/logo.png" class="logo-small d-lg-none" alt="Logo"> -->
+  <span class="logo-small d-lg-none">Logo</span>
+    <a class="sidenav-fold-toggler" href="javascript:void(0);" (click)="sideToggle()">
+      <i class="icon-menu"></i>
+  </a>
+
+    <ul class="nav-right ml-auto">
+
+      <!-- profile dropdown-menu here -->
+      <li class="user-profile" ngbDropdown>
+        <span class="user-name">Nitin Patil</span>
+        <a href="javascript:void(0)" class="dropdown-toggle sidenav-fold-toggler-profile" id="userDropdown" ngbDropdownToggle title="User Profile"
+          placement="left" ngbTooltip="User Profile">
+          <img class="profile-img img-fluid" src="./assets/images/avatar/avatar.jpg" alt="User Profile Photograph">
+        </a>
+        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="userDropdown">
+          <li class="user-name-device">
+            <img class="profile-img img-fluid" src="./assets/images/avatar/avatar.jpg" alt="User Profile Photograph">
+            <div class="user-info">
+              <a href="javascript:void(0)" ngbDropdownItem title="User Name"> Nitin Patil </a>
+              <!-- <div class="user-role">System Admin</div> -->
+            </div>
+          </li>
+          <li><a href="javascript:void(0)" routerLink="/profile" ngbDropdownItem> <i class="icon-user"></i> Profile</a></li>
+          <!-- <li><a href="javascript:void(0)" ngbDropdownItem> <i class="icon-envelope"></i> Inbox</a></li>
+          <li class="d-md-none"><a href="javascript:void(0)" ngbDropdownItem> <i class="icon-setting"></i> Setting</a>
+          </li>
+          <li class="d-md-none"><a href="javascript:void(0)" ngbDropdownItem> <i class="icon-question-mark"></i>
+              Help</a></li> -->
+          <li><a routerLink="/login"><i class="icon-log-out"></i> Logout</a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-toggle-li">
+        <a class="sidenav-fold-toggler" href="javascript:void(0);">
+          <i class="icon-menu"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- header end -->
+
+<!-- header end -->
